@@ -1,0 +1,29 @@
+</body>
+</html>
+<?
+include "koneksi.php";
+if(isset($_POST["simpan"]))
+{
+	$nama=$_POST['nama'];
+	$alamat=$_POST['alamat'];
+	$tempat_lahir=$_POST['tempat_lahir'];
+	$tanggal_lahir=$_POST['tanggal_lahir'];
+	$status=$_POST['status'];
+	$jenis_kelamin=$_POST['jenis_kelamin'];
+	$agama=$_POST['agama'];
+	$riwayar_pendidikan_sd=$_POST['riwayar_pendidikan_sd'];
+	$riwayar_pendidikan_smp=$_POST['riwayar_pendidikan_smp'];
+	$riwayar_pendidikan_sma=$_POST['riwayar_pendidikan_sma'];
+	$riwayar_pendidikan_s1=$_POST['riwayar_pendidikan_s1'];
+
+		$simpan=mysql_query("update profil set nama='$nama',alamat='$alamat',tempat_lahir='$tempat_lahir',status='$status',jenis_kelamin='$jenis_kelamin',agama='$agama',riwayar_pendidikan_sd='$riwayar_pendidikan_sd',riwayar_pendidikan_smp='$riwayar_pendidikan_smp',riwayar_pendidikan_sma='$riwayar_pendidikan_sma',riwayar_pendidikan_s1='$riwayar_pendidikan_s1')");
+		if ($simpan) 
+		{
+			echo "<script>window.alert('Data Berhasil disimpan');window.location=('tentang.php')</script>"; exit;
+		}
+		else
+		{
+			echo "<Script>window.alert('Data gagal disimpan')";;window.location=('pendaftaran.php')</script>"; exit;
+		}
+}
+?>
